@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SONTHOR - AI Investment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: '#050714',
+              surface: '#0A1224',
+              primary: '#3B82F6',
+              accent: '#60A5FA',
+              success: '#22C55E',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Orbitron', 'sans-serif'],
+            },
+            animation: {
+              'twinkle': 'twinkle 4s ease-in-out infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-glow': 'pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'shimmer': 'shimmer 2.5s linear infinite',
+              'sparkle-bloom': 'sparkle-bloom 2s ease-in-out infinite alternate',
+            },
+            keyframes: {
+              twinkle: {
+                '0%, 100%': { opacity: 0.2, transform: 'scale(0.8)' },
+                '50%': { opacity: 1, transform: 'scale(1.2)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              'pulse-glow': {
+                '0%, 100%': { opacity: 0.5, transform: 'scale(1)' },
+                '50%': { opacity: 1, transform: 'scale(1.05)' },
+              },
+              shimmer: {
+                '0%': { backgroundPosition: '-1000px 0' },
+                '100%': { backgroundPosition: '1000px 0' },
+              },
+              'sparkle-bloom': {
+                '0%': { filter: 'drop-shadow(0 0 2px rgba(96,165,250,0.5))' },
+                '100%': { filter: 'drop-shadow(0 0 8px rgba(96,165,250,0.9))' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050714;
+        background-image: 
+          radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 40%),
+          radial-gradient(circle at 20% 80%, rgba(96, 165, 250, 0.05) 0%, transparent 40%),
+          linear-gradient(to bottom, #070B1A 0%, #050716 100%);
+        color: #E2E8F0;
+        overflow-x: hidden;
+      }
+      
+      /* Hide Scrollbar */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      html, body {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      
+      /* Dynamic Star Field */
+      .star-field {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        background-image: 
+            radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 50px 160px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+            radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.6), rgba(0,0,0,0)),
+            radial-gradient(1px 1px at 160px 120px, #ffffff, rgba(0,0,0,0));
+        background-repeat: repeat;
+        background-size: 200px 200px;
+        opacity: 0.4;
+      }
+
+      .sparkle-particle {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 4px 1px rgba(96, 165, 250, 0.8);
+      }
+
+      .glass-panel {
+        background: rgba(10, 18, 36, 0.65);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2), inset 0 0 20px rgba(59, 130, 246, 0.05);
+      }
+
+      .glass-panel-dark {
+         background: rgba(5, 8, 20, 0.8);
+         backdrop-filter: blur(20px);
+         border: 1px solid rgba(255, 255, 255, 0.05);
+         box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+      }
+      
+      .neon-text {
+        text-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 20px rgba(59, 130, 246, 0.4);
+      }
+      
+      .holo-chart-line {
+        filter: drop-shadow(0 0 3px #3B82F6) drop-shadow(0 0 6px #3B82F6);
+      }
+
+      /* Custom utility for hiding scrollbars in containers */
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "recharts": "https://esm.sh/recharts@^3.6.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div class="star-field"></div>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
