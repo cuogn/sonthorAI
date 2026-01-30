@@ -12,7 +12,7 @@ export const experts: Expert[] = [
     color: "text-blue-400",
     bgColor: "bg-blue-500/10",
     borderColor: "border-blue-500/20",
-    image: "./assets/img/henryswe.png"
+    image: "/assets/img/henryswe.png"
   },
   {
     id: 'elena',
@@ -23,7 +23,7 @@ export const experts: Expert[] = [
     color: "text-purple-400",
     bgColor: "bg-purple-500/10",
     borderColor: "border-purple-500/20",
-    image: "./assets/img/ryderwander.png"
+    image: "/assets/img/ryderwander.png"
   },
   {
     id: 'marcus',
@@ -34,7 +34,7 @@ export const experts: Expert[] = [
     color: "text-emerald-400",
     bgColor: "bg-emerald-500/10",
     borderColor: "border-emerald-500/20",
-    image: "./assets/img/kenbi.png"
+    image: "/assets/img/kenbi.png"
   },
   {
     id: 'sarah',
@@ -45,7 +45,7 @@ export const experts: Expert[] = [
     color: "text-orange-400",
     bgColor: "bg-orange-500/10",
     borderColor: "border-orange-500/20",
-    image: "./assets/img/bryanruan.png"
+    image: "/assets/img/bryanruan.png"
   },
   {
     id: 'aris',
