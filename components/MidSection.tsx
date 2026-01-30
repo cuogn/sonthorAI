@@ -12,40 +12,40 @@ export const experts: Expert[] = [
     color: "text-blue-400",
     bgColor: "bg-blue-500/10",
     borderColor: "border-blue-500/20",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    image: "./assets/img/henryswe.png"
   },
   {
     id: 'elena',
-    name: "Dr. Elena Vostok",
+    name: "Ryder Wander",
     role: "Quant Risk Lead",
     specialty: "Derivatives & Volatility",
     icon: Shield,
     color: "text-purple-400",
     bgColor: "bg-purple-500/10",
     borderColor: "border-purple-500/20",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    image: "./assets/img/ryderwander.png"
   },
   {
     id: 'marcus',
-    name: "Marcus Chen",
+    name: "Ken Bi",
     role: "Macro Strategist",
     specialty: "Forex & Global Econ",
     icon: Globe,
     color: "text-emerald-400",
     bgColor: "bg-emerald-500/10",
     borderColor: "border-emerald-500/20",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    image: "./assets/img/kenbi.png"
   },
   {
     id: 'sarah',
-    name: "Sarah Jenks",
+    name: "Bryan Ruan",
     role: "Crypto Specialist",
     specialty: "DeFi & Blockchain",
     icon: Coins,
     color: "text-orange-400",
     bgColor: "bg-orange-500/10",
     borderColor: "border-orange-500/20",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    image: "./assets/img/bryanruan.png"
   },
   {
     id: 'aris',
