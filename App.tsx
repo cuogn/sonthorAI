@@ -10,6 +10,8 @@ import SignUp from './components/SignUp';
 import TermsOfService from './components/TermsOfService';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import CookiePolicy from './components/CookiePolicy';
+import BuyMeCoffee from './components/BuyMeCoffee';
+import FloatingActionButton from './components/FloatingActionButton';
 import Footer from './components/Footer';
 import { NavLink } from './types';
 
@@ -42,6 +44,8 @@ const App: React.FC = () => {
         return <PrivacyPolicy />;
       case NavLink.COOKIES:
         return <CookiePolicy />;
+      case NavLink.BUY_ME_COFFEE:
+        return <BuyMeCoffee onNavigate={setCurrentView} />;
       case NavLink.HOME:
       default:
         return <Home showChat={showChat} onNavigate={setCurrentView} />;
@@ -64,6 +68,7 @@ const App: React.FC = () => {
         </main>
 
         <Footer onNavigate={setCurrentView} />
+        <FloatingActionButton onNavigate={setCurrentView} currentView={currentView} />
       </div>
     </div>
   );

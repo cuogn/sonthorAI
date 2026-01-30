@@ -27,7 +27,8 @@ export enum NavLink {
   SIGNUP = 'Sign Up',
   TERMS = 'Terms of Service',
   PRIVACY = 'Privacy Policy',
-  COOKIES = 'Cookie Policy'
+  COOKIES = 'Cookie Policy',
+  BUY_ME_COFFEE = 'Buy Me a Coffee'
 }
 
 export interface Expert {
