@@ -23,6 +23,7 @@ export enum NavLink {
   AI_INSIGHTS = 'AI Insights',
   EXPERTS = 'Expert Network',
   REPORTS = 'Reports',
+  REPORT_ANALYZER = 'Report Analyzer',
   ADMIN = 'Admin Panel',
   ABOUT = 'About',
   CONTACT = 'Contact',
@@ -36,6 +37,7 @@ export enum NavLink {
 
 export enum UserRole {
   USER = 'user',
+  ANALYST = 'analyst',
   MANAGER = 'manager',
   ADMIN = 'admin'
 }

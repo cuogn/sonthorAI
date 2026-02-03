@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
   LineChart, Line, PieChart, Pie, Cell 
@@ -8,6 +8,7 @@ import {
   Wallet, Activity, Clock, MessageSquare, Briefcase 
 } from 'lucide-react';
 import { experts } from '../services/experts';
+import AdvisorChatModal from './AdvisorChatModal';
 
 // Portfolio allocation data
 const portfolioAllocation = [
@@ -52,6 +53,7 @@ const sentimentData = [
 
 const Dashboard: React.FC = () => {
   const advisor = experts[0]; // Henry as default advisor
+  const [isAdvisorChatOpen, setIsAdvisorChatOpen] = useState(false);
 
   return (
     <div className="max-w-[1200px] mx-auto w-full px-4 lg:px-0 mb-12 animate-fade-in">
@@ -224,7 +226,10 @@ const Dashboard: React.FC = () => {
               </div>
             </div>
 
-            <button className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold hover:bg-blue-500/20 transition-colors">
+            <button 
+              onClick={() => setIsAdvisorChatOpen(true)}
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold hover:bg-blue-500/20 transition-colors"
+            >
               <MessageSquare className="w-3.5 h-3.5" /> Hỏi ngay
             </button>
           </div>
@@ -273,6 +278,13 @@ const Dashboard: React.FC = () => {
         </div>
 
       </div>
+
+      {/* Advisor Chat Modal */}
+      <AdvisorChatModal 
+        isOpen={isAdvisorChatOpen} 
+        onClose={() => setIsAdvisorChatOpen(false)} 
+        advisor={advisor} 
+      />
     </div>
   );
 };
