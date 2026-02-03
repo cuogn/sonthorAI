@@ -1,86 +1,7 @@
 import React, { useRef, useState } from 'react';
-import { Shield, TrendingUp, Globe, Coins, ChevronRight, BarChart2, Leaf, Layers } from 'lucide-react';
-import { Expert, NavLink } from '../types';
-
-export const experts: Expert[] = [
-  {
-    id: 'henry',
-    name: "Henry Swe",
-    role: "Chief AI Analyst",
-    specialty: "Equities & Market Trends",
-    icon: TrendingUp,
-    color: "text-blue-400",
-    bgColor: "bg-blue-500/10",
-    borderColor: "border-blue-500/20",
-    image: "/assets/img/henryswe.png"
-  },
-  {
-    id: 'elena',
-    name: "Ryder Wander",
-    role: "Quant Risk Lead",
-    specialty: "Derivatives & Volatility",
-    icon: Shield,
-    color: "text-purple-400",
-    bgColor: "bg-purple-500/10",
-    borderColor: "border-purple-500/20",
-    image: "/assets/img/ryderwander.png"
-  },
-  {
-    id: 'marcus',
-    name: "Ken Bi",
-    role: "Macro Strategist",
-    specialty: "Forex & Global Econ",
-    icon: Globe,
-    color: "text-emerald-400",
-    bgColor: "bg-emerald-500/10",
-    borderColor: "border-emerald-500/20",
-    image: "/assets/img/kenbi.png"
-  },
-  {
-    id: 'sarah',
-    name: "Bryan Ruan",
-    role: "Crypto Specialist",
-    specialty: "DeFi & Blockchain",
-    icon: Coins,
-    color: "text-orange-400",
-    bgColor: "bg-orange-500/10",
-    borderColor: "border-orange-500/20",
-    image: "/assets/img/bryanruan.png"
-  },
-  {
-    id: 'aris',
-    name: "Aris Thorne",
-    role: "Technical Analyst",
-    specialty: "Chart Patterns & TA",
-    icon: BarChart2,
-    color: "text-red-400",
-    bgColor: "bg-red-500/10",
-    borderColor: "border-red-500/20",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    id: 'sofia',
-    name: "Sofia Kovač",
-    role: "ESG Strategist",
-    specialty: "Sustainable Investing",
-    icon: Leaf,
-    color: "text-lime-400",
-    bgColor: "bg-lime-500/10",
-    borderColor: "border-lime-500/20",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-  },
-  {
-    id: 'kenji',
-    name: "Kenji Tanaka",
-    role: "Commodities Lead",
-    specialty: "Metals & Futures",
-    icon: Layers,
-    color: "text-yellow-400",
-    bgColor: "bg-yellow-500/10",
-    borderColor: "border-yellow-500/20",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-  }
-];
+import { ChevronRight } from 'lucide-react';
+import { Expert, experts } from '../services/experts';
+import { NavLink } from '../types';
 
 interface MidSectionProps {
     onSelect: (expert: Expert) => void;
@@ -188,7 +109,7 @@ const MidSection: React.FC<MidSectionProps> = ({ onSelect, selectedId, onNavigat
                         <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                             <div className={`w-fit px-3 py-1.5 rounded-md ${expert.bgColor} ${expert.borderColor} border backdrop-blur-md mb-3 flex items-center gap-2`}>
                                 <expert.icon className={`w-4 h-4 ${expert.color}`} />
-                                <span className={`text-[10px] md:text-xs font-bold uppercase tracking-wider ${expert.color}`}>{expert.specialty}</span>
+                                <span className={`text-[10px] md:text-xs font-bold uppercase tracking-wider ${expert.color}`}>{expert.specialty[0]}</span>
                             </div>
                             <h4 className={`text-xl md:text-2xl font-bold mb-1 ${selectedId === expert.id ? 'text-white' : 'text-gray-200'}`}>{expert.name}</h4>
                             <p className="text-sm md:text-base text-gray-400 font-light group-hover:text-white/80 transition-colors">{expert.role}</p>

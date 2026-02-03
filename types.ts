@@ -21,6 +21,9 @@ export enum NavLink {
   HOME = 'Home',
   MARKET_TRENDS = 'Market Trends',
   AI_INSIGHTS = 'AI Insights',
+  EXPERTS = 'Expert Network',
+  REPORTS = 'Reports',
+  ADMIN = 'Admin Panel',
   ABOUT = 'About',
   CONTACT = 'Contact',
   LOGIN = 'Log In',
@@ -31,14 +34,10 @@ export enum NavLink {
   BUY_ME_COFFEE = 'Buy Me a Coffee'
 }
 
-export interface Expert {
-  id: string;
-  name: string;
-  role: string;
-  specialty: string;
-  icon: any;
-  color: string;
-  bgColor: string;
-  borderColor: string;
-  image: string;
+export enum UserRole {
+  USER = 'user',
+  MANAGER = 'manager',
+  ADMIN = 'admin'
 }
+
+

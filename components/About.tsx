@@ -1,71 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { ShieldCheck, Cpu, Users, Globe, ChevronRight, Briefcase, Sparkles } from 'lucide-react';
-
-const experts = [
-  {
-    id: 'henry',
-    name: "Henry Swe",
-    role: "Chief AI Analyst",
-    img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Increased resolution
-    desc: "Built on Gemini 2.5, Henry processes 5M+ market signals daily.",
-    bio: "Henry isn't just a chatbot; he's a fine-tuned persona built on top of the world's most advanced LLMs. Designed to emulate the decision-making process of a senior portfolio manager, Henry remembers your portfolio history, understands your risk tolerance, and adapts his communication style to your expertise level.",
-    stats: { val1: "1M+", label1: "Conversations", val2: "24/7", label2: "Availability" }
-  },
-  {
-    id: 'elena',
-    name: "Dr. Elena Vostok",
-    role: "Quant Risk Lead",
-    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    desc: "PhD in Computational Finance. Specializes in volatility modeling.",
-    bio: "Elena operates our core risk management engine. With a background in theoretical physics and computational finance, she runs Monte Carlo simulations on every trade suggestion to ensure your portfolio stays within your defined risk parameters, even during black swan events.",
-    stats: { val1: "50k+", label1: "Simulations/Sec", val2: "99.9%", label2: "Accuracy" }
-  },
-  {
-    id: 'marcus',
-    name: "Marcus Chen",
-    role: "Macro Strategist",
-    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    desc: "Former Hedge Fund Manager focusing on forex and geopolitical impacts.",
-    bio: "Marcus synthesizes global macroeconomic data, from central bank interest rate decisions to geopolitical supply chain shifts. He provides the 'big picture' context that purely technical models often miss, helping you pivot before the market turns.",
-    stats: { val1: "150+", label1: "Economies Tracked", val2: "15yr", label2: "Hist. Data" }
-  },
-  {
-    id: 'sarah',
-    name: "Sarah Jenks",
-    role: "Crypto Specialist",
-    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    desc: "Expert in DeFi protocols and on-chain analytics.",
-    bio: "Sarah lives on the blockchain. She monitors wallet movements of 'whales', analyzes smart contract audits in real-time, and tracks DeFi liquidity pools. If there is movement in the digital asset space, Sarah knows about it 3 blocks before the news breaks.",
-    stats: { val1: "24/7", label1: "On-Chain Watch", val2: "500+", label2: "Protocols" }
-  },
-  {
-    id: 'aris',
-    name: "Aris Thorne",
-    role: "Technical Analyst",
-    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    desc: "Specializes in algorithmic pattern recognition and momentum indicators.",
-    bio: "Aris is a pure technician. He doesn't care about the news; he cares about price action. Using advanced computer vision and mathematical modeling, Aris identifies chart patterns, support/resistance levels, and momentum divergences with pixel-perfect precision.",
-    stats: { val1: "200+", label1: "Patterns Recog.", val2: "ms", label2: "Latency" }
-  },
-  {
-    id: 'sofia',
-    name: "Sofia Kovač",
-    role: "ESG Strategist",
-    img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    desc: "Focuses on sustainable long-term growth opportunities.",
-    bio: "Sofia ensures your investments align with the future. She analyzes corporate governance reports, carbon footprint data, and social impact metrics. Her philosophy is that sustainable companies are the profitable giants of tomorrow.",
-    stats: { val1: "30TB", label1: "ESG Data Processed", val2: "A+", label2: "Rating" }
-  },
-  {
-    id: 'kenji',
-    name: "Kenji Tanaka",
-    role: "Commodities Lead",
-    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    desc: "Expertise in global supply chains and energy futures.",
-    bio: "Kenji tracks the physical world. From oil tanker routes to crop yields and precious metal reserves, Kenji's models predict commodity price swings that affect the entire global market, providing a hedge against inflation and volatility.",
-    stats: { val1: "Global", label1: "Supply Tracking", val2: "Real", label2: "Time Inventory" }
-  }
-];
+import { experts } from '../services/experts';
 
 const About: React.FC = () => {
   const [selectedExpert, setSelectedExpert] = useState(experts[0]);
@@ -177,7 +112,7 @@ const About: React.FC = () => {
                    
                    <div className={`w-28 h-28 md:w-32 md:h-32 rounded-full p-1 bg-gradient-to-br mb-6 relative transition-all duration-500 ${selectedExpert.id === expert.id ? 'from-blue-400 to-cyan-400 rotate-12' : 'from-white/10 to-transparent'}`}>
                       <img 
-                        src={expert.img} 
+                        src={expert.image} 
                         alt={expert.name} 
                         className="w-full h-full rounded-full object-cover border-4 border-[#070B1A] pointer-events-none" 
                       />
@@ -190,7 +125,7 @@ const About: React.FC = () => {
                    
                    <h4 className={`text-lg md:text-xl font-bold mb-1 transition-colors ${selectedExpert.id === expert.id ? 'text-white' : 'text-gray-300'}`}>{expert.name}</h4>
                    <p className="text-[10px] md:text-xs text-blue-400 font-bold uppercase tracking-widest mb-4">{expert.role}</p>
-                   <p className="text-xs md:text-sm text-gray-500 leading-relaxed line-clamp-2">{expert.desc}</p>
+                   <p className="text-xs md:text-sm text-gray-500 leading-relaxed line-clamp-2">{expert.description}</p>
                    
                    {selectedExpert.id === expert.id && (
                        <div className="mt-4 w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse mx-auto"></div>
@@ -211,7 +146,7 @@ const About: React.FC = () => {
                  <div key={selectedExpert.id} className="h-[300px] sm:h-[400px] md:h-[450px] lg:h-[480px] w-full relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl animate-fade-in group">
                      <div className="absolute inset-0 bg-blue-500/10 mix-blend-overlay z-10" />
                      <img 
-                        src={selectedExpert.img} 
+                        src={selectedExpert.image} 
                         alt={selectedExpert.name}
                         className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700"
                      />

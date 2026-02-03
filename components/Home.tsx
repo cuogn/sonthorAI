@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Hero from './Hero';
-import MidSection, { experts } from './MidSection';
+import MidSection from './MidSection';
 import Dashboard from './Dashboard';
 import HomeChatSection from './HomeChatSection';
 import { NavLink } from '../types';
+import { experts } from '../services/experts';
 
 interface HomeProps {
   showChat: boolean;

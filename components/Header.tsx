@@ -32,7 +32,11 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onNavigate }) => {
     NavLink.SIGNUP, 
     NavLink.TERMS, 
     NavLink.PRIVACY, 
-    NavLink.COOKIES
+    NavLink.COOKIES,
+    NavLink.EXPERTS,
+    NavLink.REPORTS,
+    NavLink.ADMIN,
+    NavLink.BUY_ME_COFFEE
   ];
 
   const handleMobileNavigate = (link: NavLink) => {

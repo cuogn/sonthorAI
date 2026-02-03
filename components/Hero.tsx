@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUpRight, Sparkles } from 'lucide-react';
-import { Expert } from '../types';
+import { Expert } from '../services/experts';
 
 interface HeroProps {
   expert: Expert;

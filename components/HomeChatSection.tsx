@@ -2,8 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Send, Loader2 } from 'lucide-react';
 import { streamChatResponse } from '../services/geminiService';
 import { GenerateContentResponse } from "@google/genai";
-import { experts } from './MidSection'; 
-import { Expert } from '../types';
+import { Expert, experts } from '../services/experts';
 
 interface HomeChatSectionProps {
     expert: Expert;
